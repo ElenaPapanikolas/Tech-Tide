@@ -1,0 +1,34 @@
+
+:root {
+    --dark-pastel-green: #45B54Aff;
+    --dark-green: #051E05ff;
+    --office-green: #237A2Aff;
+    --p-green: #0E3C0Fff;
+}
+
+body {
+    font-family: "Reddit Mono", monospace;
+    background-color: black;
+    background-image: url('/images/matrix.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+/* Nav custom font */
+nav {
+    font-family: "Sankofa Display", sans-serif;
+    font-size: 200%;
+    font-weight: 400;
+}
+
+
+/* Custom background color */
+.custom-background {
+    background-color: var(--dark-pastel-green);
+    opacity: 0.85;
+}
+
+
+
