@@ -3,7 +3,7 @@
     --dark-pastel-green: #45B54Aff;
     --dark-green: #051E05ff;
     --office-green: #237A2Aff;
-    --p-green: #0E3C0Fff;
+    --l-green: rgb(131, 171, 131);
 }
 
 body {
@@ -23,6 +23,10 @@ nav {
     font-weight: 400;
 }
 
+.custom-form {
+    background-color: var(--dark-pastel-green);
+    color: black;
+}
 
 /* Custom background color */
 .custom-background {
@@ -40,4 +44,8 @@ nav {
 .custom-btn {
     background-color: var(--office-green);
     color: whitesmoke;
+}
+
+.custom-shadow {
+    box-shadow: 2px 2px whitesmoke;
 }

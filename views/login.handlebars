@@ -1,0 +1,49 @@
+{{!-- Log in form  --}}
+<form class="custom-form m-4 p-3 rounded" id="login-form">
+  <h3 class="m-4 d-flex justify-content-center">Access granted: Sign in to dive deeper</h3>
+  <div class="m-4 border p-4 rounded shadow border-black">
+    <div class="mb-3">
+    <label for="username" class="form-label">Username:</label>
+    <input type="text" class="form-control border-black" id="username" aria-describedby="enterUsername">
+        
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" class="form-control border-black" id="password">
+    </div>
+    
+    <button type="submit" class="custom-btn" id="login-submit">Submit</button>
+  </div>
+  <div class="m-4 d-flex align-items-center flex-column">
+    <h5>Don't have credentials? Sign up below!</h5>
+    <button class="custom-btn" id="toggle-to-signup">Sign Up</button>
+  </div>
+</form>
+
+
+{{!-- Sign up form --}}
+<form class="custom-form m-4 p-3 rounded d-none" id="signup-form">
+  <h3 class="m-4 d-flex justify-content-center">Need Access?</h3>
+  <h4 class="d-flex justify-content-center">Sign Up!</h4>
+  <div class="m-4 border p-4 rounded shadow border-black">
+    <div class="mb-3">
+    <label for="new-username" class="form-label">Username:</label>
+    <input type="text" class="form-control border-black" id="new-username" aria-describedby="enterUsername">
+        
+    </div>
+    <div class="mb-3">
+        <label for="new-password" class="form-label">Password:</label>
+        <input type="password" class="form-control border-black" id="new-password">
+    </div>
+    
+    <button type="submit" class="custom-btn" id="signup-submit">Submit</button>
+  </div>
+  <div class="m-4 d-flex align-items-center flex-column">
+    <h5>Already have your credentials? Log In!</h5>
+    <button class="custom-btn" id="toggle-to-login">Log In</button>
+  </div>
+
+
+</form>
+
+<script src="/js/login.js"></script>

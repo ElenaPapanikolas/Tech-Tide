@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/authorization');
 
 // Route to home page
 router.get('/', async (req, res) => {
@@ -20,7 +21,7 @@ router.get('/', async (req, res) => {
         })
         const posts = postData.map(post => post.get({ plain: true }));
 
-        res.render('homepage', {posts,
+        res.render('homepage', {posts, logged_in: req.session.logged_in, 
 
         });
     } catch (err) {
@@ -31,7 +32,7 @@ router.get('/', async (req, res) => {
 // Route for login page
 router.get('/login', async (req, res) => {
     try {
-        res.render('login', {
+        res.render('login', {logged_in: req.session.logged_in,
 
         });
     } catch (err) {
@@ -40,9 +41,9 @@ router.get('/login', async (req, res) => {
 });
 
 // Route for dashboard page
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        res.render('dashboard', {
+        res.render('dashboard', {logged_in: req.session.logged_in,
 
         });
     } catch (err) {
