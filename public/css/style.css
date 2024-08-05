@@ -49,3 +49,9 @@ nav {
 .custom-shadow {
     box-shadow: 2px 2px whitesmoke;
 }
+
+/* Custom error message styling  */
+.custom-error {
+    background-color: black;
+    color: red;
+}
