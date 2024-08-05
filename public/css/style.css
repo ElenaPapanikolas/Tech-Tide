@@ -31,4 +31,13 @@ nav {
 }
 
 
+/* Custom card styling */
+.custom-card {
+    background-color: black;
+    color: whitesmoke;
+}
 
+.custom-btn {
+    background-color: var(--office-green);
+    color: whitesmoke;
+}

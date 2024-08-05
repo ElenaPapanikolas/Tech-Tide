@@ -1,0 +1,17 @@
+{{#each posts as |post|}}
+
+<div class="card text-center m-4 custom-card p-2">
+  <div class="card-header border-bottom">
+    By:{{post.user.username}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.content}}</p>
+    <a href="#" class="btn custom-btn">Add a Comment</a>
+  </div>
+  <div class="card-footer border-top">
+    {{formatDate post.createdAt}}
+  </div>
+</div>
+
+{{/each}}
