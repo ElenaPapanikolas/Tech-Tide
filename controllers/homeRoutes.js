@@ -43,18 +43,21 @@ router.get('/login', async (req, res) => {
 // Route for dashboard page
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        res.render('dashboard', {logged_in: req.session.logged_in,
-
+        const userId = req.session.user_id;
+        const userData = await Post.findAll({
+            where: { author_id: userId },
+            include: [{ model: Comment }, { model: User }],
+            order: [['updatedAt', 'DESC'],]
         });
-    } catch (err) {
-        res.status(500).json(err);
-    };
+
+        const posts = userData.map(post => post.get({ plain: true }));
+
+        res.render('dashboard', { posts, userId, logged_in: req.session.logged_in, });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+
 });
-
-
-
-
-
 
 
 

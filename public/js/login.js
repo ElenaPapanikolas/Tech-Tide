@@ -71,6 +71,7 @@ const handleSignup = async (event) => {
     try {
         // to verify password length
         if (password.length < 8) {
+            message.classList.remove('d-none');
             message.textContent = 'Passwords must be 8 characters or more.';
             return;
         }
@@ -85,9 +86,11 @@ const handleSignup = async (event) => {
             document.location.replace('/dashboard');
         } else {
             const errorMessage = await response.json();
+            message.classList.remove('d-none');
             message.textContent =errorMessage.message;
         }
     } catch (error) {
+        message.classList.remove('d-none');
         message.textContent = error.message || 'An unknown error occurred.';
     }
 }
