@@ -1,0 +1,69 @@
+{{!-- New post button  --}}
+<div class="d-flex justify-content-center">
+    <div class="m-4 p-4 d-inline custom-card card rounded">
+        <div class="card-header border-bottom">
+        </div>
+        <button class="m-4 p-2 custom-btn custom-shadow" data-bs-toggle="modal" data-bs-target="#new-post-modal">+ New Post</button>
+        <div class="card-footer border-top">
+        </div>
+    </div>
+</div>
+
+{{!-- Section for posts to render  --}}
+<section>
+{{#each posts as |post|}}
+
+<div class="card text-center m-4 custom-card p-2">
+  <div class="card-header border-bottom">
+    By:{{post.user.username}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.content}}</p>
+    <button class="custom-btn custom-shadow text-decoration-none">Edit Post</button>
+    <button class="custom-btn custom-shadow text-decoration-none">Delete Post</button>
+  </div>
+  <div class="card-footer border-top">
+    {{formatDate post.createdAt}}
+  </div>
+</div>
+
+{{/each}}
+</section>
+
+
+
+
+
+{{!-- New post form in modal  --}}
+<div class="modal" id="new-post-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content custom-card">
+      <div class="modal-header">
+        <h5 class="modal-title ">New Post</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{!-- Form  --}}
+        <div class="mb-3">
+            <label for="post-title" class="form-label">Title:</label>
+            <input type="text" class="form-control custom-modal-input" id="post-title">
+        </div>
+        <div class="mb-3">
+            <label for="post-content" class="form-label">Post:</label>
+            <textarea class="form-control custom-modal-input" id="post-content" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer d-flex flex-column">
+        <p class="custom-error d-inline p-2 mx-4" id="post-error-message"></p>
+        <div>
+            <button type="button" class="custom-btn custom-shadow" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            <button type="button" class="custom-btn custom-shadow" data-user-id={{userId}} id="new-post">Create Post</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./js/post.js"></script>

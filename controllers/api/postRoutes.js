@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
 
-// api/posts endpoint
+// /api/posts endpoint
 
 // POST request to create a new post
 router.post('/', async (req, res) => {
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
 
         res.status(200).json(newPost);
     } catch(error) {
-        res.status(400).json({ message: 'Error processing request.' });
+        res.status(500).json({ message: 'Internal server error. Error processing request.' });
     }
 
 });

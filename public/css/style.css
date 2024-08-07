@@ -4,6 +4,7 @@
     --dark-green: #051E05ff;
     --office-green: #237A2Aff;
     --l-green: rgb(131, 171, 131);
+    --white: whitesmoke;
 }
 
 body {
@@ -38,20 +39,31 @@ nav {
 /* Custom card styling */
 .custom-card {
     background-color: black;
-    color: whitesmoke;
+    color: var(--white);
 }
 
 .custom-btn {
     background-color: var(--office-green);
-    color: whitesmoke;
+    color: var(--white);
 }
 
 .custom-shadow {
-    box-shadow: 2px 2px whitesmoke;
+    box-shadow: 2px 2px var(--white);
 }
 
 /* Custom error message styling  */
 .custom-error {
     background-color: black;
     color: red;
+}
+
+.custom-modal-input {
+    background-color: var(--office-green);
+    color: var(--white);
+
+} 
+
+.custom-modal-input:focus {
+    background-color: var(--office-green);
+    color: var(--white);
 }
