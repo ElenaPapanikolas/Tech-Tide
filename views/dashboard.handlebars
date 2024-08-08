@@ -20,7 +20,7 @@
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.content}}</p>
-    <button class="custom-btn custom-shadow text-decoration-none">Edit Post</button>
+    <button class="custom-btn custom-shadow text-decoration-none edit-post" data-bs-toggle="modal" data-bs-target="#edit-post-modal" data-post-id="{{post.id}}">Edit Post</button>
     <button class="custom-btn custom-shadow text-decoration-none">Delete Post</button>
   </div>
   <div class="card-footer border-top">
@@ -30,10 +30,6 @@
 
 {{/each}}
 </section>
-
-
-
-
 
 {{!-- New post form in modal  --}}
 <div class="modal" id="new-post-modal" tabindex="-1">
@@ -59,6 +55,37 @@
         <div>
             <button type="button" class="custom-btn custom-shadow" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
             <button type="button" class="custom-btn custom-shadow" data-user-id={{userId}} id="new-post">Create Post</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Edit post form in modal  --}}
+<div class="modal" id="edit-post-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content custom-card">
+      <div class="modal-header">
+        <h5 class="modal-title ">Edit Post</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{!-- Form  --}}
+        <div class="mb-3">
+            <label for="edit-title" class="form-label">Title:</label>
+            <input type="text" class="form-control custom-modal-input" id="edit-title">
+        </div>
+        <div class="mb-3">
+            <label for="edit-content" class="form-label">Post:</label>
+            <textarea class="form-control custom-modal-input" id="edit-content" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer d-flex flex-column">
+        <p class="custom-error d-inline p-2 mx-4" id="edit-error-message"></p>
+        <div>
+            <button type="button" class="custom-btn custom-shadow" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            <button type="button" class="custom-btn custom-shadow" id="submit-edit-post">Edit Post</button>
         </div>
 
       </div>
