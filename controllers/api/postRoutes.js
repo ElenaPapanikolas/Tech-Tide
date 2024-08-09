@@ -52,7 +52,21 @@ router.put('/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Internal server error.  Error updating post.' });
     }
-})
+});
+
+// DELETE request to delete post
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const deletedPost = await Post.destroy({ where: {id : id}});
+        if (!deletedPost) {
+            return res.status(404).json({ message: 'No post found with that ID.  Failed to delete.' });
+        }
+        res.status(200).json(deletedPost);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error.  Error deleting post.' });
+    }
+});
 
 
 module.exports = router;

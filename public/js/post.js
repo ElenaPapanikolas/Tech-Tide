@@ -61,7 +61,6 @@ const startEditPost = async (id) => {
 
 // Function to handle editing post
 const handleEditPost = async (post) => {
-    console.log(post);
     // Gets access to edit button for event listener
     const editBtn = document.getElementById('submit-edit-post');
     // Gets access to modal input elements
@@ -74,7 +73,6 @@ const handleEditPost = async (post) => {
 
     if (editBtn) {
         editBtn.addEventListener('click', async () => {
-            console.log(title);
             if ((title.value === "") || (postContent.value === "") ) {
                 message.textContent = 'Please fill out all fields.';
             } else {
@@ -101,6 +99,25 @@ const handleEditPost = async (post) => {
 
 };
 
+const handleDeletePost = async (id) => {
+    if (id) {
+        try {
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                const errorMessage = await response.json();
+                console.error(errorMessage.message);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    } 
+    console.error('No ID found.  Failed to delete post.');
+}
+
 // Event listener to add a new post
 newPostBtn.addEventListener('click', handleAddPost);
 
@@ -111,5 +128,13 @@ document.querySelectorAll('.edit-post').forEach(button => {
         const postData = await startEditPost(postId);
         handleEditPost(postData);
         
+    })
+});
+
+// Event listener for delete post buttons
+document.querySelectorAll('.delete-post').forEach(button => {
+    button.addEventListener('click', function (event) {
+        const postId = event.target.getAttribute('data-post-id');
+        handleDeletePost(postId);
     })
 })

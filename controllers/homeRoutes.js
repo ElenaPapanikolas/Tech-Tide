@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
                 {
                     model: User
                 },
-            ],
+            ], order: [['updatedAt', 'DESC']],
         })
         const posts = postData.map(post => post.get({ plain: true }));
 
