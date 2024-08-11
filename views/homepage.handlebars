@@ -1,6 +1,6 @@
 {{#each posts as |post|}}
 
-<div class="card text-center m-4 custom-card p-2">
+<div class="card text-center m-4 custom-card p-2" data-id="{{post.id}}">
   <div class="card-header border-bottom">
     By:{{post.user.username}}
   </div>
@@ -33,7 +33,7 @@
         </div>
       </div>
       {{else}}
-      <h6>Please log in to add a comment.</h6>
+      <h6 style="color: red;">Please log in to add a comment.</h6>
       {{/if}}
       <div class="modal-footer d-flex flex-column">
         <p class="custom-error d-inline p-2 mx-4" id="comment-error-message"></p>

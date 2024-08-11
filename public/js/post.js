@@ -138,4 +138,4 @@ document.querySelectorAll('.delete-post').forEach(button => {
         const postId = event.target.getAttribute('data-post-id');
         handleDeletePost(postId);
     })
-})
+});

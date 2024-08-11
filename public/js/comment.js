@@ -39,7 +39,21 @@ const showCommentForm = (event) => {
     })
 };
 
+// Event listener to view specific post page
+document.addEventListener('click', function(event) {
+    if (event.target.closest('.card .comment-btn')) {
+        return;
+    }
+    const card = event.target.closest('.card');
+    if (card) {
+        const postId = card.getAttribute('data-id');
+        if (postId) {
+            document.location.replace(`/post/${postId}`);
+        }
+    }
+});
+
 // Event listener for comment buttons
 document.querySelectorAll('.comment-btn').forEach(button => {
     button.addEventListener('click', showCommentForm);
-})
+});
