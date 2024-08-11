@@ -7,7 +7,7 @@
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.content}}</p>
-    <button class="custom-btn custom-shadow text-decoration-none">Add a Comment</button>
+    <button class="custom-btn custom-shadow text-decoration-none comment-btn" data-bs-toggle="modal" data-bs-target="#comment-modal" data-id="{{post.id}}">Add a Comment</button>
   </div>
   <div class="card-footer border-top">
     {{formatDate post.createdAt}}
@@ -15,3 +15,37 @@
 </div>
 
 {{/each}}
+
+{{!-- Comment modal  --}}
+<div class="modal" id="comment-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content custom-card">
+      <div class="modal-header">
+        <h5 class="modal-title ">Add a Comment</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{!-- Form  --}}
+        {{#if logged_in}}
+        <div class="mb-3">
+            <label for="comment-content" class="form-label">Comment:</label>
+            <textarea class="form-control custom-modal-input" id="comment-content" rows="3"></textarea>
+        </div>
+      </div>
+      {{else}}
+      <h6>Please log in to add a comment.</h6>
+      {{/if}}
+      <div class="modal-footer d-flex flex-column">
+        <p class="custom-error d-inline p-2 mx-4" id="comment-error-message"></p>
+        <div>
+            <button type="button" class="custom-btn custom-shadow" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            {{#if logged_in}}
+            <button type="button" class="custom-btn custom-shadow" data-user-id="{{userId}}" id="add-comment">Add A Comment</button>
+            {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>

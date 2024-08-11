@@ -99,6 +99,7 @@ const handleEditPost = async (post) => {
 
 };
 
+// Function to delete post
 const handleDeletePost = async (id) => {
     if (id) {
         try {
