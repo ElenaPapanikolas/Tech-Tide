@@ -1,15 +1,21 @@
-// Function to submit a new comment
+// Function to pass correct postID to submit button
 const showCommentForm = (event) => {
-    // Get ID of post and user commenting on post
+    // Get ID of post
     const postId = event.target.getAttribute('data-id');
-    const userId = document.getElementById('add-comment').getAttribute('data-user-id');
-    // Error message paragraph
-    const message = document.getElementById('comment-error-message');
+    document.getElementById('add-comment').setAttribute('data-post-id', postId);
 
-    document.getElementById('add-comment').addEventListener('click', async function() {
+};
+
+// Function to submit a new comment
+const submitComment = async (event) => {
+    // Get ID of user logged in
+    const userId = document.getElementById('add-comment').getAttribute('data-user-id');
+    // Get ID of post
+    const postId = document.getElementById('add-comment').getAttribute('data-post-id');
+    // Get access to error message paragraph
+    const message = document.getElementById('comment-error-message');
         // Get access to form input element
         const commentBody = document.getElementById('comment-content').value.trim();
-
         if (!userId) {
             message.textContent = 'Must be logged in to add a comment';
         } else if (!postId) {
@@ -35,9 +41,10 @@ const showCommentForm = (event) => {
                 message.textContent = error;
             }
         }
+}
 
-    })
-};
+// Event listener to submit comment
+document.getElementById('add-comment').addEventListener('click', submitComment);
 
 // Event listener to view specific post page
 document.addEventListener('click', function(event) {
