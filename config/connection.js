@@ -1,3 +1,4 @@
+// Connects Sequelize with PostgreSQL
 const Sequelize = require('sequelize');
 require('dotenv').config();
 

@@ -1,3 +1,4 @@
+// Function to submit a new comment
 const showCommentForm = (event) => {
     // Get ID of post and user commenting on post
     const postId = event.target.getAttribute('data-id');
@@ -19,7 +20,6 @@ const showCommentForm = (event) => {
             message.textContent = 'Please fill out comment form';
         } else {
             try {
-                console.log(commentBody);
                 const response = await fetch('/api/comments', {
                     method: 'POST',
                     body: JSON.stringify({ content: commentBody, post_id: postId, author_id: userId }),

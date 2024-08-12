@@ -1,3 +1,4 @@
+// Index for API and homeRoutes
 const router = require('express').Router();
 
 const apiRoutes = require('./api');

@@ -1,3 +1,4 @@
+{{!-- Rendering specific post  --}}
 <div class="card text-center m-4 custom-card p-2">
   <div class="card-header border-bottom">
     By:{{post.user.username}}
@@ -11,6 +12,7 @@
   </div>
 </div>
 
+{{!-- Rendering all comments for the post  --}}
 {{#each post.comments as |comment|}}
 <div class="card text-center m-4 custom-card p-2">
   <div class="card-header border-bottom">

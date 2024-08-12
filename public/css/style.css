@@ -1,9 +1,7 @@
 
 :root {
     --dark-pastel-green: #45B54Aff;
-    --dark-green: #051E05ff;
     --office-green: #237A2Aff;
-    --l-green: rgb(131, 171, 131);
     --white: whitesmoke;
 }
 
@@ -24,6 +22,7 @@ nav {
     font-weight: 400;
 }
 
+/* Custom form styling */
 .custom-form {
     background-color: var(--dark-pastel-green);
     color: black;
@@ -57,6 +56,7 @@ nav {
     color: red;
 }
 
+/* Custom styling for modals */
 .custom-modal-input {
     background-color: var(--office-green);
     color: var(--white);
